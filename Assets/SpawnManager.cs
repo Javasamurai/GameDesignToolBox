@@ -8,7 +8,6 @@ namespace RaraGames
     public class SpawnManager: MonoBehaviour
     {
         public Spawner toolItemPrefab;
-
         public Transform toolContainer;
         [SerializeField]
         public List<ActorTypes> actorTypes; 
@@ -16,6 +15,7 @@ namespace RaraGames
         private Actor activeActor;
         public Transform playGround;
 
+        private bool playing = false;
         private void Awake() {
             Spawner.onSpawnActor += ( (actor, actortType) => {
                 PickActor(actor, actortType);
@@ -38,22 +38,44 @@ namespace RaraGames
             activeActor.actorTypes = actorType;
         }
 
+        public void UpdateGameState(bool _playing)
+        {
+            playing = _playing;
+            for (int i = 0; i < actorsSpawned.Count; i++)
+            {
+                actorsSpawned[i].actorTypes.brain.Init(actorsSpawned[i].gameObject);
+            }
+        }
+
         private void OnMouseUp() {
             if (activeActor != null) {
                 Vector2 postion = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
                 Actor newActor = Instantiate<Actor>(activeActor, postion, Quaternion.identity, playGround);
-                activeActor.actorTypes.brain.Init(newActor.gameObject);
+                newActor.gameObject.layer = LayerMask.NameToLayer(activeActor.actorTypes.actorLayer);
+                newActor.gameObject.transform.GetChild(0).gameObject.layer = newActor.gameObject.layer;
+                newActor.gameObject.name = activeActor.actorTypes.actorName;
+                newActor.onKilled += ((actor) => {
+                    // Removing actor from the list
+                    actorsSpawned.Remove(actor);
+                });
                 actorsSpawned.Add(newActor);
                 activeActor = null;
             }
         }
 
         private void Update() {
-            for (int i = 0; i < actorsSpawned.Count; i++)
-            {
-                actorsSpawned[i].actorTypes.brain.Think();
+            if (playing) {
+                for (int i = 0; i < actorsSpawned.Count; i++)
+                {
+                    actorsSpawned[i].actorTypes.brain.Think();
+                }
             }
+        }
+
+        private void RemoveActor(Actor actor)
+        {
+            actorsSpawned.Remove(actor);
         }
 
         public void RemoveAllActors() {

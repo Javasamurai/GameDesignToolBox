@@ -32,6 +32,7 @@ namespace RaraGames
             // Changing game state after play
             playerButton.onClick.AddListener(() => {
                 currentGameState = CURRENT_GAME_STATE.PLAYING;
+                spawnManager.UpdateGameState(true);
             });
         }
     }

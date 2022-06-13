@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorName: Low Block
   sprite: {fileID: -328006125, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
+  actorLayer: 
   maxSpawn: 10
+  maxHealth: 100
+  canGiveDamageByTrigger: 0
+  damageByTrigger: 0
+  prefab: {fileID: 0}
+  brain: {fileID: 0}

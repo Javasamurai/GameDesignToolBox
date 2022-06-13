@@ -6,9 +6,8 @@ namespace RaraGames
 
     public class WandererBrain : ActorBrain {
         public float radius = 5;
-
         public float speed = 1;
-        
+        public float damage = 100;
         private Vector3 currentPosition;
         private Vector3 desiredPosition;
 

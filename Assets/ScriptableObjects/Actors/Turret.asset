@@ -14,4 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorName: Turret
   sprite: {fileID: -1537620655, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
+  actorLayer: Enemy
   maxSpawn: 10
+  maxHealth: 100
+  canGiveDamageByTrigger: 1
+  damageByTrigger: 100
+  prefab: {fileID: 3384338844959917170, guid: 8f5b9b918ee97d04b9b347a59e9240ed, type: 3}
+  brain: {fileID: 11400000, guid: 03e5c4bdb49ffee4d9f6914fe7066496, type: 2}

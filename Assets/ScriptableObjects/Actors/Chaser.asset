@@ -13,5 +13,11 @@ MonoBehaviour:
   m_Name: Chaser
   m_EditorClassIdentifier: 
   actorName: Chaser
-  sprite: {fileID: 937521688, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
+  sprite: {fileID: -1218130139, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
+  actorLayer: Enemy
   maxSpawn: 10
+  maxHealth: 100
+  canGiveDamageByTrigger: 1
+  damageByTrigger: 10
+  prefab: {fileID: 3384338844959917170, guid: 4186dd78771c8554797bedd81f1afb99, type: 3}
+  brain: {fileID: 0}

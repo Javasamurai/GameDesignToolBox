@@ -27,7 +27,6 @@ namespace RaraGames {
 
         private int maxSpawn = 10;
         private int currentSpawn = 0;
-        public Actor actorPrefab;
         private Button button;
         public static event onSpawnActorEvent onSpawnActor;
         public delegate void onSpawnActorEvent(Actor actor, ActorTypes actorType);
@@ -37,7 +36,7 @@ namespace RaraGames {
             
             button.onClick.AddListener( () => {
                 currentSpawn++;
-                onSpawnActor(actorPrefab, actorTypes);
+                onSpawnActor(actorTypes.prefab, actorTypes);
                 if (currentSpawn >= maxSpawn) {
                     // Disable button if max spawn is reached
                     button.interactable = false;

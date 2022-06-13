@@ -3,7 +3,6 @@ using UnityEngine;
 namespace RaraGames {
     [CreateAssetMenu(fileName = "PlayerBrain", menuName = "Level Designer ToolBox/PlayerBrain", order = 0)]
     public class PlayerBrain : ActorBrain {
-
         public float speed = 1f;
         public override void Think() {
             if (Input.GetAxis("Horizontal") > 0) {

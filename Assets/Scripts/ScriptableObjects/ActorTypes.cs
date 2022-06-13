@@ -7,8 +7,13 @@ namespace RaraGames
         // Name of the item in the scene.
         public string actorName;
         public Sprite sprite;
+        public string actorLayer;
         public int maxSpawn = 1;
+        public float maxHealth = 100f;
+        public bool canGiveDamageByTrigger = false;
+        public float damageByTrigger = 10f;
 
+        public Actor prefab;
         public ActorBrain brain;
     }
 }

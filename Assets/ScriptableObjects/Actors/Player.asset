@@ -14,5 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actorName: Player
   sprite: {fileID: 1382327945, guid: 70b5100c9a63c464780969a27e8b8fa0, type: 3}
+  actorLayer: Player
   maxSpawn: 1
+  maxHealth: 100
+  canGiveDamageByTrigger: 0
+  damageByTrigger: 0
+  prefab: {fileID: 3384338844959917170, guid: 83052e5d46507824a8d2b4196cd2d12a, type: 3}
   brain: {fileID: 11400000, guid: 8ad5b0077e67cf64991074ee9ac039d3, type: 2}
