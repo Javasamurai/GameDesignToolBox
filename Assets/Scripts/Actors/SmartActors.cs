@@ -10,7 +10,6 @@ namespace RaraGames
     {
         public Health health;
         public ActorBrain brain;
-
         public override void Init()
         {
             base.Init();

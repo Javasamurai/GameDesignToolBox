@@ -8,5 +8,6 @@ namespace RaraGames
         public float maxHealth = 100f;
         public bool canGiveDamageByTrigger = false;
         public float damageByTrigger = 10f;
+        public bool canDestoyByTrigger = false;
     }
 }

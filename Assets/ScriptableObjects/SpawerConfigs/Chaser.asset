@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Chaser
   m_EditorClassIdentifier: 
   actorName: Chaser
-  sprite: {fileID: -328006125, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
+  sprite: {fileID: -1218130139, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
   maxSpawn: 10
   prefab: {fileID: 5656491593713383551, guid: 4186dd78771c8554797bedd81f1afb99, type: 3}

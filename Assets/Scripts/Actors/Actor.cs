@@ -18,11 +18,17 @@ namespace RaraGames
     {
         public ActorConfig actorConfig;
         public Pickable.STATE currentState = Pickable.STATE.IDLE;
-        public Action<Actor> onKilled;
+        public static Action<Actor, bool> onKilled;
         // Player is live in the scene.
         public virtual void Init()
         {
             currentState = Pickable.STATE.LIVING;
+        }
+
+        public virtual void DeInit() 
+        {
+            currentState = Pickable.STATE.DESTROYED;
+            Destroy(gameObject);
         }
 
         private void OnCollisionEnter2D(Collision2D other) {
@@ -31,24 +37,34 @@ namespace RaraGames
             }
         }
 
-       private void OnTriggerEnter2D(Collider2D other) {
+        private void OnTriggerEnter2D(Collider2D other) {
             if (other != null) {
                 ValidateCollider(other.gameObject);
             }
         }
 
-        private void ValidateCollider(GameObject collider) {
-            if (currentState == Pickable.STATE.LIVING && !actorConfig.canGiveDamageByTrigger || actorConfig.damageByTrigger == 0) {
+        public virtual void ValidateCollider(GameObject collider) {
+            if (currentState != Pickable.STATE.LIVING) {
                 return;
             }
-            Health health = collider.transform.GetComponent<Health>();
-            if (health != null && health.GetCurrentHealth() > 0) {
-                health.TakeDamage(actorConfig.damageByTrigger);
+            if (actorConfig.canDestoyByTrigger) {
+                Destroy(gameObject);
+            }
+
+            if (actorConfig.canGiveDamageByTrigger || actorConfig.damageByTrigger > 0) {
+                Health health = collider.transform.GetComponent<Health>();
+                if (health != null && health.GetCurrentHealth() > 0) {
+                    health.TakeDamage(actorConfig.damageByTrigger);
+                }
             }
         }
+        
         private void OnDestroy() {
             currentState = Pickable.STATE.DESTROYED;
-            onKilled?.Invoke(this);
+
+            if (actorConfig.isPlayer) {
+                UICallBacks.onGameOver?.Invoke();
+            }
         }
     }
 }

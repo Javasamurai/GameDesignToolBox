@@ -17,7 +17,7 @@ namespace RaraGames
 
         private void OnTriggerEnter2D(Collider2D other) {
             if ( (1 << other.gameObject.layer) == damageLayer.value && other.transform.GetComponent<Health>() != null) {
-                other.transform.parent.GetComponent<Health>().TakeDamage(config.damage);
+                other.transform.GetComponent<Health>().TakeDamage(config.damage);
                 SelfDestruct();
             }
         }

@@ -52,7 +52,7 @@ namespace RaraGames
 
                 Actor newActor = Instantiate<Actor>(activeActor, postion, Quaternion.identity, playGround);
                 // newActor.gameObject.name = activeActor.actorConfig.actorName + actorsSpawned.Count;
-                newActor.onKilled += ((actor) => {
+                Actor.onKilled += ((actor, isPlayer) => {
                     // Removing actor from the list
                     actorsSpawned.Remove(actor);
                 });
@@ -68,7 +68,7 @@ namespace RaraGames
 
         public void RemoveAllActors() {
             foreach (Actor actor in actorsSpawned) {
-                Destroy(actor.gameObject);
+                actor.DeInit();
             }
             actorsSpawned.Clear();
         }

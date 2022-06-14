@@ -3,8 +3,7 @@ using System;
 namespace RaraGames
 {
     public class UICallBacks {
-        Action<Actor> onGameItemSelected;
-        Action<Actor> onGameItemDicarded;
-        Action<Actor> onGameItemDropped;
+        public static Action onGameOver;
+        public static Action onCoinCollected;
     }
 }

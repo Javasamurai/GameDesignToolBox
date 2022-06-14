@@ -5,7 +5,6 @@ using UnityEngine.UI;
 namespace RaraGames
 {
     public class GameLoop : MonoBehaviour {
-
         //
         // Game STATE
         // INITIALIZING: The state of the game when game is not started yet.
@@ -14,16 +13,19 @@ namespace RaraGames
         // GAME_OVER: The state of the game when the game is over.
        enum CURRENT_GAME_STATE
        {
-            INITIALIZING,
+            DESIGNING,
             PLAYING,
-            PAUSED,
+            PAUSED, // Not used yet
             GAME_OVER
        }
 
        [SerializeField]
        public Button playerButton;
 
-       private CURRENT_GAME_STATE currentGameState = CURRENT_GAME_STATE.INITIALIZING;
+       [SerializeField]
+       NotificationManager notificationManager;
+
+        private CURRENT_GAME_STATE currentGameState = CURRENT_GAME_STATE.DESIGNING;
         // Managers
         public SpawnManager spawnManager;
 
@@ -31,8 +33,17 @@ namespace RaraGames
         private void Start() {
             // Changing game state after play
             playerButton.onClick.AddListener(() => {
+                playerButton.interactable = false;
                 currentGameState = CURRENT_GAME_STATE.PLAYING;
+                notificationManager.ShowNotification(currentGameState.ToString());
                 spawnManager.UpdateGameState(true);
+            });
+
+            notificationManager.ShowNotification(currentGameState.ToString());
+            UICallBacks.onGameOver += (() => {
+                // Game Over
+                notificationManager.ShowNotification("Game Over");
+                spawnManager.RemoveAllActors();
             });
         }
     }

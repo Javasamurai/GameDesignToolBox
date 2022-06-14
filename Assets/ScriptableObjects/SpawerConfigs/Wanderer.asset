@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Wanderer
   m_EditorClassIdentifier: 
   actorName: Wanderer
-  sprite: {fileID: -1889014932, guid: 70b5100c9a63c464780969a27e8b8fa0, type: 3}
+  sprite: {fileID: -328006125, guid: 6f3dc4bb2c091aa40b38c18e148a48a0, type: 3}
   maxSpawn: 1
   prefab: {fileID: -6913677851477476531, guid: 4cc6125f5e1524b43977a97aa18b68f4, type: 3}

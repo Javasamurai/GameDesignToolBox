@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803242ffae3dbb8438b808fb23616308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorConfig: {fileID: 11400000, guid: 2ad0bbe9fae3bd64c9ef306989322b62, type: 2}
+  actorConfig: {fileID: 11400000, guid: e41e840e300a96047a397f204a32bd2d, type: 2}
   currentState: 0
 --- !u!61 &800049793337725263
 BoxCollider2D:
