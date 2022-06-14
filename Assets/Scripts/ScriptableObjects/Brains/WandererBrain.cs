@@ -12,26 +12,32 @@ namespace RaraGames
 
         private DIRECTION currentDirection = DIRECTION.LEFT;
 
+        public LayerMask blockMask;
         private enum DIRECTION {
             LEFT,
             RIGHT
         }
         public override void Think(SmartActors thinker) {
-            if (thinker.transform.position.x <= desiredPosition.x && currentDirection == DIRECTION.LEFT) {
+            RaycastHit2D hit = Physics2D.Raycast(thinker.transform.position, currentDirection == DIRECTION.LEFT ? Vector2.left : Vector2.right, speed * Time.deltaTime, blockMask);
+            bool gotHit = hit.collider != null;
+
+            if ( (thinker.transform.position.x <= desiredPosition.x || gotHit) && currentDirection == DIRECTION.LEFT) {
                 currentDirection = DIRECTION.RIGHT;
                 desiredPosition = thinker.transform.localPosition + Vector3.right * radius;
             }
-            if (thinker.transform.position.x >= desiredPosition.x && currentDirection == DIRECTION.RIGHT) {
+            else if ((thinker.transform.position.x >= desiredPosition.x || gotHit) && currentDirection == DIRECTION.RIGHT) {
                 currentDirection = DIRECTION.LEFT;
                 desiredPosition = thinker.transform.localPosition + Vector3.left * radius;
             }
 
             Vector3 nextPosition;
+            Vector3 targetPosition = Vector3.zero;
             if (currentDirection == DIRECTION.LEFT) {
-                nextPosition = thinker.transform.localPosition + Vector3.left * radius;
+                targetPosition = Vector3.left;
             } else {
-                nextPosition = thinker.transform.localPosition + Vector3.right * radius;
+                targetPosition = Vector3.right;
             }
+            nextPosition = thinker.transform.localPosition + targetPosition * radius;
             thinker.transform.localPosition = Vector3.MoveTowards(thinker.transform.localPosition, nextPosition, speed * Time.deltaTime);
         }
     }

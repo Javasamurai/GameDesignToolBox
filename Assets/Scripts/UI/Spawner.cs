@@ -28,7 +28,7 @@ namespace RaraGames {
         private int maxSpawn = 10;
         private int currentSpawn = 0;
         private Button button;
-        public static event onSpawnActorEvent onSpawnActor;
+        public event onSpawnActorEvent onSpawnActor;
         public delegate void onSpawnActorEvent(Actor actor, SpawnerConfig spawner);
         
         private void Awake() {
@@ -39,7 +39,7 @@ namespace RaraGames {
                 onSpawnActor(spawnerConfig.prefab, spawnerConfig);
                 if (currentSpawn >= maxSpawn) {
                     // Disable button if max spawn is reached
-                    button.interactable = false;
+                    Destroy(gameObject);
                     return;
                 }
             });

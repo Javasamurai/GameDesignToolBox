@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2891974622794216474}
   - component: {fileID: 3384338844959917170}
   - component: {fileID: 800049793337725263}
+  - component: {fileID: 8306867909361387277}
   m_Layer: 0
   m_Name: Flag
   m_TagString: Untagged
@@ -130,7 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 803242ffae3dbb8438b808fb23616308, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actorConfig: {fileID: 0}
+  actorConfig: {fileID: 11400000, guid: ab35d9aea8a455e4ba9d5650862afebb, type: 2}
   currentState: 0
 --- !u!61 &800049793337725263
 BoxCollider2D:
@@ -158,3 +159,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2595065, y: 1.4248018}
   m_EdgeRadius: 0
+--- !u!114 &8306867909361387277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891974622794216453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29abb4f253e230e4f836f8036b640c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

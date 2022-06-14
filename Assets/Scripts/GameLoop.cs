@@ -16,6 +16,8 @@ namespace RaraGames
             DESIGNING,
             PLAYING,
             PAUSED, // Not used yet
+
+            WON,
             GAME_OVER
        }
 
@@ -43,7 +45,13 @@ namespace RaraGames
             UICallBacks.onGameOver += (() => {
                 // Game Over
                 notificationManager.ShowNotification("Game Over");
-                spawnManager.RemoveAllActors();
+                spawnManager.DeactivateAllActors();
+            });
+
+            UICallBacks.onFlagCollected += (() => {
+                // Game Over
+                notificationManager.ShowNotification("You Won");
+                spawnManager.DeactivateAllActors();
             });
         }
     }

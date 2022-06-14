@@ -5,12 +5,17 @@ namespace RaraGames
     using UnityEngine;    
     public class Health : MonoBehaviour {
         public float currentHealth = 100;
-        public void Init(float health) {
+        private bool isPlayer; 
+        public void Init(float health, bool _isPlayer) {
             currentHealth = 100;
+            isPlayer = _isPlayer;
         }
 
         public void TakeDamage(float damage) {
             currentHealth -= damage;
+            if (isPlayer) {
+                UICallBacks.onHealthDown(currentHealth);
+            }
             if (currentHealth <= 0) {
                 currentHealth = 0;
                 Destroy(gameObject);

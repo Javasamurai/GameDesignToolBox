@@ -13,18 +13,15 @@ namespace RaraGames
 
         public override void Think(SmartActors thinker)
         {
+            timeSinceLastShot += Time.deltaTime;
             if (timeSinceLastShot > shootDelay)
             {
                 timeSinceLastShot = 0f;
-                Shoot();
-            }
-            else
-            {
-                timeSinceLastShot += Time.deltaTime;
+                Shoot(thinker.gameObject);
             }
         }
 
-        void Shoot() {
+        void Shoot(GameObject thinker) {
             Projectile projectile = Instantiate(projectTile, thinker.transform.position, Quaternion.identity, thinker.transform.parent);
         }
     }

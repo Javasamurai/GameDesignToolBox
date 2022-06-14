@@ -10,7 +10,7 @@ namespace RaraGames
         public float followRadius = 3f;
 
         GameObject player;
-
+        public LayerMask blockMask;
         public override void Init(SmartActors thinker) {
             base.Init(thinker);
             var actors = GameObject.FindObjectsOfType<SmartActors>();
@@ -34,7 +34,10 @@ namespace RaraGames
             }
             Vector2 distance = player.transform.position - thinker.transform.position;
 
-            if (distance.magnitude > followRadius)
+            RaycastHit2D hit = Physics2D.Raycast(thinker.transform.position, distance.normalized , speed * Time.deltaTime, blockMask);
+            bool gotHit = hit.collider != null;
+
+            if (distance.magnitude > followRadius && !gotHit)
             {
                 thinker.transform.position = Vector2.MoveTowards(thinker.transform.position, player.transform.position, speed * Time.deltaTime);
             }

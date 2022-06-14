@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isPlayer: 0
   maxHealth: 100
-  canGiveDamageByTrigger: 1
+  canGiveDamageByTrigger: 0
   damageByTrigger: 10
+  canDestoyByTrigger: 1

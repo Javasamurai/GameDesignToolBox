@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2891974621482389123}
   - component: {fileID: 2891974621482389120}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: playerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2891974621482389122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5.1667, y: 5.1667, z: 5.1667}
+  m_LocalScale: {x: 3.689024, y: 3.689024, z: 3.689024}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2891974622794216474}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2891974622794216474}
   - component: {fileID: 3384338844959917170}
   - component: {fileID: 800049793337725263}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: HighBlock
   m_TagString: Untagged
   m_Icon: {fileID: 0}

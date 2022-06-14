@@ -25,9 +25,14 @@ namespace RaraGames
             currentState = Pickable.STATE.LIVING;
         }
 
-        public virtual void DeInit() 
+        public virtual void Deactivate()
         {
             currentState = Pickable.STATE.DESTROYED;
+        }
+
+        public virtual void DeInit() 
+        {
+            Deactivate();
             Destroy(gameObject);
         }
 

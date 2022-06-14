@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RaraGames
 {
@@ -16,11 +17,7 @@ namespace RaraGames
         public Transform playGround;
 
         private bool playing = false;
-        private void Awake() {
-            Spawner.onSpawnActor += ( (actor, actortType) => {
-                PickActor(actor, actortType);
-            });
-        }
+
         void Start()
         {
             actorsSpawned = new List<Actor>();
@@ -29,17 +26,27 @@ namespace RaraGames
             {
                 Spawner spawner = Instantiate<Spawner>(toolItemPrefab, Vector3.one, Quaternion.identity, toolContainer);
                 spawner.spawnerConfig = actorTypes[i];
+
+                spawner.onSpawnActor += ( (actor, actorType) => {
+                    PickActor(actor, actorType);
+                });
             }
         }
 
         public  void PickActor(Actor actor, SpawnerConfig actorType)
         {
             activeActor = actor;
+
+            for (int i = 0; i < toolContainer.transform.childCount; i++)
+            {
+                toolContainer.GetChild(i).GetComponent<Button>().interactable = false;
+            }
         }
 
         public void UpdateGameState(bool _playing)
         {
             playing = _playing;
+            toolContainer.gameObject.SetActive(!playing);
             for (int i = 0; i < actorsSpawned.Count; i++)
             {
                 actorsSpawned[i].Init();
@@ -56,6 +63,11 @@ namespace RaraGames
                     // Removing actor from the list
                     actorsSpawned.Remove(actor);
                 });
+
+                for (int i = 0; i < toolContainer.transform.childCount; i++)
+                {
+                    toolContainer.GetChild(i).GetComponent<Button>().interactable = true;
+                }
                 actorsSpawned.Add(newActor);
                 activeActor = null;
             }
@@ -64,6 +76,14 @@ namespace RaraGames
         private void RemoveActor(Actor actor)
         {
             actorsSpawned.Remove(actor);
+        }
+
+        public void DeactivateAllActors()
+        {
+            for (int i = 0; i < actorsSpawned.Count; i++)
+            {
+                actorsSpawned[i].Deactivate();
+            }
         }
 
         public void RemoveAllActors() {

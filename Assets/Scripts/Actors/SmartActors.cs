@@ -13,7 +13,7 @@ namespace RaraGames
         public override void Init()
         {
             base.Init();
-            health.Init(actorConfig.maxHealth);
+            health.Init(actorConfig.maxHealth, actorConfig.isPlayer);
             brain.Init(this);
         }
 

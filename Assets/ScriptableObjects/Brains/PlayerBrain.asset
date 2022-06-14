@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thinker: {fileID: 0}
   speed: 3
+  blockMask:
+    serializedVersion: 2
+    m_Bits: 256
