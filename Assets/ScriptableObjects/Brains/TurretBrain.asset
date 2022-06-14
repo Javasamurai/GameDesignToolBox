@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64aff15e265d46841a04868d67f7443b, type: 3}
+  m_Script: {fileID: 11500000, guid: 82c39f1071311da48b5ecf8f031fc11a, type: 3}
   m_Name: TurretBrain
   m_EditorClassIdentifier: 
   thinker: {fileID: 0}

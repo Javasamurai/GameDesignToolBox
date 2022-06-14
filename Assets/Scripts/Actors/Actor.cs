@@ -16,42 +16,39 @@ namespace RaraGames
     }
     public class Actor : MonoBehaviour
     {
-        public Action<Actor> onKilled;
-        public float health = 100f;
-        public ActorTypes _actorTypes;
+        public ActorConfig actorConfig;
         public Pickable.STATE currentState = Pickable.STATE.IDLE;
-        public ActorTypes actorTypes {
-            set {
-                _actorTypes = value;
-                this.health = value.maxHealth;
-            }
-            get {
-                return _actorTypes;
-            }
-        }
-        public void TakeDamage(float damage)
+        public Action<Actor> onKilled;
+        // Player is live in the scene.
+        public virtual void Init()
         {
-            health -= damage;
-            if (health <= 0)
-            {
-                currentState = Pickable.STATE.DESTROYED;
-                onKilled?.Invoke(this);
-                Destroy(gameObject);
+            currentState = Pickable.STATE.LIVING;
+        }
+
+        private void OnCollisionEnter2D(Collision2D other) {
+            if (other != null) {
+                ValidateCollider(other.gameObject);
             }
         }
 
-        public void GiveDamage(Actor actor) 
-        {
-            if (actor != null) {
-                actor.TakeDamage(this.actorTypes.damageByTrigger);
+       private void OnTriggerEnter2D(Collider2D other) {
+            if (other != null) {
+                ValidateCollider(other.gameObject);
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other) {
-            if (!actorTypes.canGiveDamageByTrigger) {
+        private void ValidateCollider(GameObject collider) {
+            if (currentState == Pickable.STATE.LIVING && !actorConfig.canGiveDamageByTrigger || actorConfig.damageByTrigger == 0) {
                 return;
             }
-            GiveDamage(other.gameObject.GetComponent<Actor>());
+            Health health = collider.transform.GetComponent<Health>();
+            if (health != null && health.GetCurrentHealth() > 0) {
+                health.TakeDamage(actorConfig.damageByTrigger);
+            }
+        }
+        private void OnDestroy() {
+            currentState = Pickable.STATE.DESTROYED;
+            onKilled?.Invoke(this);
         }
     }
 }

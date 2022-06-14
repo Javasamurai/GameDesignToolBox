@@ -9,18 +9,18 @@ namespace RaraGames {
         public Image background;
         public TextMeshProUGUI actorName;
 
-        private ActorTypes _actorTypes;
+        private SpawnerConfig _spawnerConfig;
 
-        public ActorTypes actorTypes {
+        public SpawnerConfig spawnerConfig {
             get {
-                return _actorTypes;
+                return _spawnerConfig;
             }
             set {
                 if (value != null) {
-                    _actorTypes = value;
-                    background.sprite = _actorTypes.sprite;
-                    actorName.text = _actorTypes.actorName;
-                    maxSpawn = _actorTypes.maxSpawn;
+                    _spawnerConfig = value;
+                    background.sprite = _spawnerConfig.sprite;
+                    actorName.text = _spawnerConfig.actorName;
+                    maxSpawn = _spawnerConfig.maxSpawn;
                 }
             }
         }
@@ -29,14 +29,14 @@ namespace RaraGames {
         private int currentSpawn = 0;
         private Button button;
         public static event onSpawnActorEvent onSpawnActor;
-        public delegate void onSpawnActorEvent(Actor actor, ActorTypes actorType);
+        public delegate void onSpawnActorEvent(Actor actor, SpawnerConfig spawner);
         
         private void Awake() {
             button = GetComponent<Button>();
             
             button.onClick.AddListener( () => {
                 currentSpawn++;
-                onSpawnActor(actorTypes.prefab, actorTypes);
+                onSpawnActor(spawnerConfig.prefab, spawnerConfig);
                 if (currentSpawn >= maxSpawn) {
                     // Disable button if max spawn is reached
                     button.interactable = false;

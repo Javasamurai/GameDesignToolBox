@@ -390,15 +390,15 @@ MonoBehaviour:
   toolItemPrefab: {fileID: 5947005667412731445, guid: 9106235886656d841906801dc7a8ff01, type: 3}
   toolContainer: {fileID: 2085400803}
   actorTypes:
-  - {fileID: 11400000, guid: 882ed3083a7a28944a3c9034efdbcd17, type: 2}
-  - {fileID: 11400000, guid: 2181736fcd8b30b4a8a7bc10254ce008, type: 2}
-  - {fileID: 11400000, guid: 976d46a6e76933e489fca17d366f9d17, type: 2}
-  - {fileID: 11400000, guid: 75d665e1f2c772d4180cebbd143c8ab5, type: 2}
-  - {fileID: 11400000, guid: 10d6a8567a685a246b8b6ca5712403cd, type: 2}
-  - {fileID: 11400000, guid: 58244530f0eec554c8d66c77a4c71272, type: 2}
-  - {fileID: 11400000, guid: 194297e61e3a85e44a26cde19e23835c, type: 2}
-  - {fileID: 11400000, guid: 07e2defe89f0cd74d80e6b94386c4642, type: 2}
-  - {fileID: 11400000, guid: afce0f4664e0d8b4f84d48eb5e59a064, type: 2}
+  - {fileID: 11400000, guid: f44135f9db46c9d4d87759e4b0dd193a, type: 2}
+  - {fileID: 11400000, guid: 0f72e5e2628be7e4b9cc2deacdadbd3f, type: 2}
+  - {fileID: 11400000, guid: f39bf6c5f270e7747b9c90e5a6e86bc3, type: 2}
+  - {fileID: 11400000, guid: 2c0ffb99bdd24ad40b1796b8dabff0fb, type: 2}
+  - {fileID: 11400000, guid: a250a62538a03fc48afec9dd8a3a2e68, type: 2}
+  - {fileID: 11400000, guid: b08880fa333ffd04a8b6a888358d078f, type: 2}
+  - {fileID: 11400000, guid: d5e54c89407c78d4ebf8a789b41920d3, type: 2}
+  - {fileID: 11400000, guid: 3715701b3c1cb504e9a3ba19df8e6bc6, type: 2}
+  - {fileID: 11400000, guid: 60e158458c4c7d14d9460a6673bf6219, type: 2}
   playGround: {fileID: 702024380}
 --- !u!61 &164358164
 BoxCollider2D:

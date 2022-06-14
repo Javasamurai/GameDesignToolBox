@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2891974621482389123}
   - component: {fileID: 2891974621482389120}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: playerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,9 +93,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2891974622794216474}
-  - component: {fileID: 3384338844959917170}
   - component: {fileID: 800049793337725263}
-  m_Layer: 0
+  - component: {fileID: 5656491593713383551}
+  - component: {fileID: 5941575507696391761}
+  m_Layer: 7
   m_Name: Chaser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,21 +119,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3384338844959917170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2891974622794216453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 803242ffae3dbb8438b808fb23616308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  _actorTypes: {fileID: 11400000, guid: 75d665e1f2c772d4180cebbd143c8ab5, type: 2}
-  currentState: 0
 --- !u!61 &800049793337725263
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -159,3 +145,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2595065, y: 1.4248018}
   m_EdgeRadius: 0
+--- !u!114 &5656491593713383551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891974622794216453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba0e741817828b42b40e25daf0e80c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actorConfig: {fileID: 11400000, guid: de4dda5d69314a6459b772234cc7229e, type: 2}
+  currentState: 0
+  health: {fileID: 5941575507696391761}
+  brain: {fileID: 11400000, guid: 227dea7a2f930f44ea341f26683388ca, type: 2}
+--- !u!114 &5941575507696391761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2891974622794216453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 619bce7b00dff0a4ead9bce21d596fd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
