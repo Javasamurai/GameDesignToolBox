@@ -15,3 +15,6 @@ MonoBehaviour:
   thinker: {fileID: 0}
   speed: 1
   followRadius: 3
+  blockMask:
+    serializedVersion: 2
+    m_Bits: 256

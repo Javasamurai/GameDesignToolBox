@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: WandererBrain
   m_EditorClassIdentifier: 
   thinker: {fileID: 0}
-  radius: 9.58
+  radius: 3
   speed: 4.67
   damage: 100
+  blockMask:
+    serializedVersion: 2
+    m_Bits: 256
